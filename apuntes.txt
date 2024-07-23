@@ -1,0 +1,28 @@
+INSERT INTO preguntas (pregunta, opcion_a, opcion_b, opcion_c, opcion_d, opcion_e, numero_opciones, num_correctas) VALUES
+('',
+ '', 
+ '', 
+ '', 
+ '', 
+ NULL, 
+ 4, 1);
+
+INSERT INTO respuestas_correctas (pregunta_id, opcion_correcta) VALUES
+((SELECT id FROM preguntas WHERE pregunta = ''), 'b'),
+((SELECT id FROM preguntas WHERE pregunta = ''), 'c'),
+((SELECT id FROM preguntas WHERE pregunta = ''), 'e');
+
+
+What action can be performed in the Advanced Dashboards application? (3 correct)
+The tiles displayed on the Launchpad homepage are arranged into groups. What applications can you include when you create a new group or add tiles to preexisting groups?
+
+INSERT INTO preguntas (pregunta, opcion_a, opcion_b, opcion_c, opcion_d, opcion_e, numero_opciones, num_correctas) VALUES
+('What global config parameter can be used to limit the number of planning versions in a system?',
+ 'PLAN_VIEW->PV_COUNT_MAX', 
+ 'ANALYTICS->MAX_RECORDS', 
+ 'SCENARIO->SCN_COUNT_MAX', 
+ NULL, 
+ NULL, 
+ 3, 1);
+
+alt + tab
