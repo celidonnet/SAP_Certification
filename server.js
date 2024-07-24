@@ -47,10 +47,10 @@ app.post('/corregir', (req, res) => {
             return map;
         }, {});
 
-        const resultados = respuestasUsuario.map(({ preguntaId, userAnswers, index }) => {
+        const resultados = respuestasUsuario.map(({ preguntaId, userAnswers }) => {
             const correctAnswer = respuestasCorrectasMap[preguntaId] || [];
             const correcto = userAnswers.length === correctAnswer.length && userAnswers.every(val => correctAnswer.includes(val));
-            return { preguntaId, correcto, index };
+            return { preguntaId, correcto };
         });
 
         res.json({ resultados });
@@ -68,6 +68,7 @@ app.get('/questionPage', (req, res) => {
 app.listen(3000, () => {
     console.log('Server is running on http://localhost:3000');
 });
+
 
 /* const express = require('express');
 const mysql = require('mysql2');
@@ -118,18 +119,10 @@ app.post('/corregir', (req, res) => {
             return map;
         }, {});
 
-        const resultados = Object.keys(respuestasUsuario).map(preguntaId => {
+        const resultados = respuestasUsuario.map(({ preguntaId, userAnswers, index }) => {
             const correctAnswer = respuestasCorrectasMap[preguntaId] || [];
-            const userAnswer = Array.isArray(respuestasUsuario[preguntaId]) ? respuestasUsuario[preguntaId] : [respuestasUsuario[preguntaId]];
-            const correcto = userAnswer.length === correctAnswer.length && userAnswer.every(val => correctAnswer.includes(val));
-            return { preguntaId, correcto };
-        });
-
-        // Ensure resultados are sorted by the original question order
-        resultados.sort((a, b) => {
-            const aIndex = parseInt(a.preguntaId);
-            const bIndex = parseInt(b.preguntaId);
-            return aIndex - bIndex;
+            const correcto = userAnswers.length === correctAnswer.length && userAnswers.every(val => correctAnswer.includes(val));
+            return { preguntaId, correcto, index };
         });
 
         res.json({ resultados });
@@ -147,4 +140,3 @@ app.get('/questionPage', (req, res) => {
 app.listen(3000, () => {
     console.log('Server is running on http://localhost:3000');
 }); */
-
