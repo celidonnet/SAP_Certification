@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function loadExam(questionCount) {
-    fetch(`/get-questions?count=${questionCount}`)
+    fetch(`/api/get-questions?count=${questionCount}`)
         .then(response => response.json())
         .then(data => {
             questions = data;
@@ -70,7 +70,7 @@ function submitExam() {
         respuestasUsuario.push({ preguntaId: question.id, userAnswers, index });
     });
 
-    fetch('/corregir', {
+    fetch('/api/corregir', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

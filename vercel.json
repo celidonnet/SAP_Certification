@@ -1,8 +1,6 @@
 {
     "rewrites": [
-      { "source": "/get-questions", "destination": "/api/get-questions" },
-      { "source": "/corregir", "destination": "/api/corregir" },
-      { "source": "/questionPage", "destination": "/api/questionPage" }
+      { "source": "/api/get-questions", "destination": "/api/get-questions" },
+      { "source": "/api/corregir", "destination": "/api/corregir" }
     ]
   }
-  
