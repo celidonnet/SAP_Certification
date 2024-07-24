@@ -30,9 +30,14 @@
 </header>
 <body>
     <div class="buttons">
-        <button class="button" onclick="window.location.href='/questionPage.html?count=40'"><strong>Load Full Exam (80 questions)</strong></button>
-        <button class="button" onclick="window.location.href='/questionPage.html?count=80'"><strong>Load Mini Exam (40 questions)</strong></button>
+        <button class="button" onclick="startExam(80)"><strong>Load Full Exam (80 questions)</strong></button>
+        <button class="button" onclick="startExam(40)"><strong>Load Mini Exam (40 questions)</strong></button>
     </div>
+    <script>
+        function startExam(count) {
+            window.location.href = `/questionPage.html?count=${count}`;
+        }
+    </script>
 </body>
 </html>
 

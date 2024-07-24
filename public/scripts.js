@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function loadExam(questionCount) {
-    fetch(`/api/get-questions?count=${questionCount}`)
+    fetch(`/get-questions?count=${questionCount}`)
         .then(response => response.json())
         .then(data => {
             questions = data;
@@ -70,7 +70,7 @@ function submitExam() {
         respuestasUsuario.push({ preguntaId: question.id, userAnswers, index });
     });
 
-    fetch('/api/corregir', {
+    fetch('/corregir', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -87,13 +87,15 @@ function submitExam() {
         const resultadosDiv = document.getElementById('resultados');
         resultadosDiv.innerHTML = '<h2>Resultados:</h2>';
         data.resultados.forEach((resultado, index) => {
+            const questionIndex = questions.findIndex(q => q.id == resultado.preguntaId);
             resultadosDiv.innerHTML += `
-                <p>Pregunta ${index + 1}: ${resultado.correcto ? 'Correcta' : 'Incorrecta'}</p>
+                <p>Pregunta ${questionIndex + 1}: ${resultado.correcto ? 'Correcta' : 'Incorrecta'}</p>
             `;
         });
     })
     .catch(error => console.error('Error:', error));
 }
+
 
 
 /* let questions = [];

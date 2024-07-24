@@ -21,7 +21,7 @@ connection.connect(err => {
     console.log('Connected to the database');
 });
 
-app.get('/api/get-questions', (req, res) => {
+app.get('/get-questions', (req, res) => {
     const count = parseInt(req.query.count);
     connection.query(`SELECT * FROM preguntas ORDER BY RAND() LIMIT ?`, [count], (err, results) => {
         if (err) {
@@ -31,7 +31,7 @@ app.get('/api/get-questions', (req, res) => {
     });
 });
 
-app.post('/api/corregir', (req, res) => {
+app.post('/corregir', (req, res) => {
     const respuestasUsuario = req.body;
 
     connection.query('SELECT * FROM respuestas_correctas', (err, correctAnswers) => {
@@ -57,8 +57,12 @@ app.post('/api/corregir', (req, res) => {
     });
 });
 
-app.get('*', (req, res) => {
+app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+
+app.get('/questionPage', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'questionPage.html'));
 });
 
 app.listen(3000, () => {
