@@ -65,10 +65,15 @@ app.get('/questionPage', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'questionPage.html'));
 });
 
-app.listen(3000, () => {
-    console.log('Server is running on http://localhost:3000');
+// Default route for all other requests
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+    console.log(`Server is running on port ${port}`);
+});
 
 /* const express = require('express');
 const mysql = require('mysql2');

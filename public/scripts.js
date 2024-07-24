@@ -96,6 +96,7 @@ function submitExam() {
     .catch(error => console.error('Error:', error));
 }
 
+
 /* let questions = [];
 let currentQuestionIndex = 0;
 
