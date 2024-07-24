@@ -3,9 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IBP Certification</title>
-    <link rel="stylesheet" href="/styles/styles.css">
-    <script src="scripts.js" defer></script>
+    <link rel="stylesheet" href="/styles/stylesIndex.css">
+    <title>Examen Simulador</title>
+    <script>
+        function loadExam(count) {
+            window.location.href = `/questionPage?count=${count}`;
+        }
+    </script>
 </head>
 <header>
     <nav class="nav-container">
@@ -25,116 +29,10 @@
     </nav>
 </header>
 <body>
-    <div id="examContainer" style="display:none;">
-        <div id="questionContainer"></div>
-        <div id="buttons">
-            <button id="backButton" onclick="previousQuestion()" style="display:none;">Back</button>
-            <button id="nextButton" onclick="nextQuestion()" style="display:none;">Next</button>
-            <button id="submitExamButton" onclick="submitExam()" style="display:none;">Submit Exam</button>
-        </div>
+    <div class="buttons">
+        <button href="/public/questionPage.html" class="button" onclick="loadExam(80)"><strong>Load Full Exam (80 questions)</strong></button>
+        <button href="/public/questionPage.html" class="button" onclick="loadExam(40)"><strong>Load Mini Exam (40 questions)</strong></button>
     </div>
-    
-    <div id="resultados"></div>
 </body>
 </html>
 
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="../scripts.js" defer></script>
-    <script src="../public/server.js" defer></script>
-    <title>Document</title>
-</head>
-<body>
-    <div id="preguntas">
-        Aquí se cargarán dinámicamente las preguntas y opciones -->
-    <!-- </div>
-    <div id="examContainer" style="display:none;">
-        <div id="questionContainer"></div>
-        <button id="backButton" onclick="previousQuestion()">Back</button>
-        <button id="nextButton" onclick="nextQuestion()">Next</button>
-    </div>
-    <button onclick="corregirExamen()">Corregir Examen</button>
-
-    <div id="resultados">
-        <!-- Aquí se mostrarán los resultados de la corrección -->
-    <!-- </div>
-
-    <script>
-        function corregirExamen() {
-            const preguntasDiv = document.getElementById('preguntas');
-            const inputs = preguntasDiv.querySelectorAll('input[type=radio], input[type=checkbox]');
-            const respuestasUsuario = {};
-
-            inputs.forEach(input => {
-                const preguntaId = input.name.split('_')[1];
-                if (!respuestasUsuario[preguntaId]) {
-                    respuestasUsuario[preguntaId] = [];
-                }
-                if (input.checked) {
-                    respuestasUsuario[preguntaId].push(input.value);
-                }
-            });
-
-            fetch('/corregir', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(respuestasUsuario)
-            })
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Error al corregir el examen');
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    const resultadosDiv = document.getElementById('resultados');
-                    resultadosDiv.innerHTML = '<h2>Results:</h2>';
-                    data.resultados.forEach((resultado, index) => {
-                        resultadosDiv.innerHTML += `
-                            <p>Pregunta ${index + 1}: ${resultado.correcto ? 'Correct' : 'Incorrect'}</p>
-                        `;
-                    });
-                })
-                .catch(error => console.error('Error:', error));
-        }
-
-        // Código para cargar las preguntas dinámicamente desde el servidor
-
-        window.onload = function() {
-            fetch('/examen/full') // Cambiar a '/examen/mini' si se necesita el examen mini
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Error al obtener las preguntas');
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    const preguntasDiv = document.getElementById('preguntas');
-                    preguntasDiv.innerHTML = '';
-
-                    data.preguntas.forEach((pregunta, index) => {
-                        preguntasDiv.innerHTML += `
-                            <div class="pregunta">
-                                <h3>Question ${index + 1}: ${pregunta.pregunta}</h3>
-                                <div class="opciones">
-                                    ${pregunta.opcion_a ? `<label><input type="${pregunta.num_correctas > 1 ? 'checkbox' : 'radio'}" name="pregunta_${pregunta.id}" value="a">${pregunta.opcion_a}</label>` : ''}
-                                    ${pregunta.opcion_b ? `<label><input type="${pregunta.num_correctas > 1 ? 'checkbox' : 'radio'}" name="pregunta_${pregunta.id}" value="b">${pregunta.opcion_b}</label>` : ''}
-                                    ${pregunta.opcion_c ? `<label><input type="${pregunta.num_correctas > 1 ? 'checkbox' : 'radio'}" name="pregunta_${pregunta.id}" value="c">${pregunta.opcion_c}</label>` : ''}
-                                    ${pregunta.opcion_d ? `<label><input type="${pregunta.num_correctas > 1 ? 'checkbox' : 'radio'}" name="pregunta_${pregunta.id}" value="d">${pregunta.opcion_d}</label>` : ''}
-                                    ${pregunta.opcion_e ? `<label><input type="${pregunta.num_correctas > 1 ? 'checkbox' : 'radio'}" name="pregunta_${pregunta.id}" value="e">${pregunta.opcion_d}</label>` : ''}
-                                </div>
-                            </div>
-                        `;
-                    });
-                })
-                .catch(error => console.error('Error:', error));
-        };
-    </script>
-</body>
-</html> -->
