@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados del Examen</title>
+    <link rel="stylesheet" href="./styles/resultsPage.css">
+</head>
+<body>
+    <h1>Resultados del Examen</h1>
+    <div id="resultados"></div>
+    <script>
+        `<div class="answer-box">`
+        document.addEventListener('DOMContentLoaded', () => {
+            const resultados = JSON.parse(localStorage.getItem('resultados')).resultados;
+            const resultadosDiv = document.getElementById('resultados');
+            resultados.forEach(resultado => {
+                let optionsHTML = `
+                    ${resultado.opciones.a ? `<p><strong>A:</strong> ${resultado.opciones.a} ${resultado.correctAnswer.includes('a') ? '(Correct)' : ''}</p>` : ''}
+                    ${resultado.opciones.b ? `<p><strong>B:</strong> ${resultado.opciones.b} ${resultado.correctAnswer.includes('b') ? '(Correct)' : ''}</p>` : ''}
+                    ${resultado.opciones.c ? `<p><strong>C:</strong> ${resultado.opciones.c} ${resultado.correctAnswer.includes('c') ? '(Correct)' : ''}</p>` : ''}
+                    ${resultado.opciones.d ? `<p><strong>D:</strong> ${resultado.opciones.d} ${resultado.correctAnswer.includes('d') ? '(Correct)' : ''}</p>` : ''}
+                    ${resultado.opciones.e ? `<p><strong>E:</strong> ${resultado.opciones.e} ${resultado.correctAnswer.includes('e') ? '(Correct)' : ''}</p>` : ''}
+                `;
+
+                resultadosDiv.innerHTML += `
+                    <div>
+                        <h2>${resultado.pregunta}</h2>
+                        <div>${optionsHTML}</div>
+                        <p><strong>Your answer:</strong> ${resultado.userAnswers.length > 0 ? resultado.userAnswers.join(', ') : 'Blank'}</p>
+                        <p><strong>Result:</strong> ${resultado.correcto ? 'Correct' : 'Incorrect'}</p>
+                    </div>
+                    <hr>
+                `;
+            });
+        `</div>`
+        });
+    </script>
+</body>
+</html>
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results Page</title>
+    <link rel="stylesheet" href="./styles/resultsPage.css">
+</head>
+<body>
+    <h1>Results Page</h1>
+    <div id="resultados"></div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const resultados = JSON.parse(localStorage.getItem('resultados'));
+            const resultadosDiv = document.getElementById('resultados');
+            resultadosDiv.innerHTML = '<h2>Resultados:</h2>';
+            resultados.resultados.forEach((resultado, index) => {
+                resultadosDiv.innerHTML += `
+                    <div>
+                        <p>Pregunta ${index + 1}: ${resultado.correcto ? 'Correcta' : 'Incorrecta'}</p>
+                        <p>Respuestas correctas: ${resultado.correctAnswer.join(', ')}</p>
+                    </div>
+                `;
+            });
+        });
+    </script>
+</body>
+</html>
+ -->

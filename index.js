@@ -47,13 +47,33 @@ app.post('/corregir', (req, res) => {
             return map;
         }, {});
 
-        const resultados = respuestasUsuario.map(({ preguntaId, userAnswers }) => {
-            const correctAnswer = respuestasCorrectasMap[preguntaId] || [];
-            const correcto = userAnswers.length === correctAnswer.length && userAnswers.every(val => correctAnswer.includes(val));
-            return { preguntaId, correcto };
-        });
+        connection.query('SELECT * FROM preguntas', (err, questions) => {
+            if (err) {
+                return res.status(500).send('Error retrieving questions');
+            }
 
-        res.json({ resultados });
+            const resultados = respuestasUsuario.map(({ preguntaId, userAnswers }) => {
+                const correctAnswer = respuestasCorrectasMap[preguntaId] || [];
+                const correcto = userAnswers.length === correctAnswer.length && userAnswers.every(val => correctAnswer.includes(val));
+                const pregunta = questions.find(q => q.id === parseInt(preguntaId));
+                return { 
+                    preguntaId, 
+                    pregunta: pregunta.pregunta, 
+                    opciones: {
+                        a: pregunta.opcion_a,
+                        b: pregunta.opcion_b,
+                        c: pregunta.opcion_c,
+                        d: pregunta.opcion_d,
+                        e: pregunta.opcion_e
+                    },
+                    userAnswers, 
+                    correctAnswer, 
+                    correcto 
+                };
+            });
+
+            res.json({ resultados });
+        });
     });
 });
 
@@ -65,15 +85,16 @@ app.get('/questionPage', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'questionPage.html'));
 });
 
-// Default route for all other requests
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+app.get('/resultsPage', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'resultsPage.html'));
 });
 
-const port = process.env.PORT || 3000;
-app.listen(port, () => {
-    console.log(`Server is running on port ${port}`);
+app.listen(3000, () => {
+    console.log('Server is running on http://localhost:3000');
 });
+
+
+
 
 /* const express = require('express');
 const mysql = require('mysql2');
@@ -124,10 +145,10 @@ app.post('/corregir', (req, res) => {
             return map;
         }, {});
 
-        const resultados = respuestasUsuario.map(({ preguntaId, userAnswers, index }) => {
+        const resultados = respuestasUsuario.map(({ preguntaId, userAnswers, pregunta, opciones }) => {
             const correctAnswer = respuestasCorrectasMap[preguntaId] || [];
-            const correcto = userAnswers.length === correctAnswer.length && userAnswers.every(val => correctAnswer.includes(val));
-            return { preguntaId, correcto, index };
+            const correcto = correctAnswer.length === userAnswers.length && userAnswers.every(val => correctAnswer.includes(val));
+            return { preguntaId, pregunta, opciones, userAnswers, correctAnswer, correcto };
         });
 
         res.json({ resultados });
@@ -142,6 +163,11 @@ app.get('/questionPage', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'questionPage.html'));
 });
 
+app.get('/resultsPage', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'resultsPage.html'));
+});
+
 app.listen(3000, () => {
     console.log('Server is running on http://localhost:3000');
-}); */
+});
+ */

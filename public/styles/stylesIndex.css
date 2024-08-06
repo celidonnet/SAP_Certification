@@ -7,6 +7,13 @@
     font-family: 'Teachers';
 }
 
+.titulo{
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    margin-left: 2rem;
+    font-size: 2rem;
+}
+
 body{
     background: #A770EF;  /* fallback for old browsers */
 background: -webkit-linear-gradient(to right, #FDB99B, #CF8BF3, #A770EF);  /* Chrome 10-25, Safari 5.1-6 */
