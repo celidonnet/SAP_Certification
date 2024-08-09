@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Teachers:ital,wght@0,400..800;1,400..800&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Teachers';
+}
+
+body{
+    background: #A770EF;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #FDB99B, #CF8BF3, #A770EF);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #FDB99B, #CF8BF3, #A770EF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.nav-container{
+    height: 80px;
+    background-color: black;
+    color: snow;
+    display: flex;
+    align-items: center;
+}
+.General-Links{
+    display: flex;
+    align-items: center;
+}
+.links{
+    padding-left: 30px;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 1rem;
+    align-items: center;
+}
+.links a{
+    color: snow;
+    text-decoration: none;
+}
+
+.user{
+    padding-left: 60vw;
+    text-decoration-line:none;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap:2rem;
+}
+
+.user a{
+    color: snow;
+    text-decoration: none;
+}

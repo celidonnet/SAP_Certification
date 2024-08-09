@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/stylesIndex.css">
+    <title>Examen Simulador</title>
+    <script>
+        function loadExam(count) {
+            window.location.href = `/questionPage?count=${count}`;
+        }
+    </script>
+</head>
+<header>
+    <nav class="nav-container">
+        <picture><a href="#"><img src="./img/Exams (1).png" alt="logo" width="80px" class="logo-menu"></a></picture>
+        <ul class="General-Links">
+            <div class="links">
+                <li><a href="/#">HOME</a></li>
+                <li><a href="/exams">EXAMS</a></li>
+                <li><a href="/material">MATERIAL</a></li>
+            </div>
+            <div class="user">
+                <li><a href="/login">LOGIN</a></li>
+                <li><a href="/register">REGISTER</a></li>
+            </div>
+        </ul>
+
+    </nav>
+</header>
+<body>
+    <h1 class="titulo">Welcome to SAP IBP Certification Exams !</h1>
+    <div class="buttons">
+        <button class="button" onclick="startExam(80)"><strong>Load Full Exam (80 questions)</strong></button>
+        <button class="button" onclick="startExam(40)"><strong>Load Mini Exam (40 questions)</strong></button>
+    </div>
+    <script>
+        function startExam(count) {
+            window.location.href = `/questionPage.html?count=${count}`;
+        }
+    </script>
+</body>
+</html>

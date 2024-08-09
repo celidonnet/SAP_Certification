@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="./styles/registerStyles.css">
+</head>
+<header>
+    <nav class="nav-container">
+        <picture><a href="#"><img src="./img/Exams (1).png" alt="logo" width="80px" class="logo-menu"></a></picture>
+        <ul class="General-Links">
+            <div class="links">
+                <li><a href="/#">HOME</a></li>
+                <li><a href="/exams">EXAMS</a></li>
+                <li><a href="/material">MATERIAL</a></li>
+            </div>
+            <div class="user">
+                <li><a href="/login">LOGIN</a></li>
+                <li><a href="/register">REGISTER</a></li>
+            </div>
+        </ul>
+
+    </nav>
+</header>
+<body>
+    <h1>Register</h1>
+    <form id="registerForm">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br>
+
+        <button type="submit">Register</button>
+    </form>
+
+    <script src="register.js"></script>
+</body>
+</html>
+

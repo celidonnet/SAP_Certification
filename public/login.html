@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="./styles/loginStyles.css">
+</head>
+<header>
+    <nav class="nav-container">
+        <picture><a href="#"><img src="./img/Exams (1).png" alt="logo" width="80px" class="logo-menu"></a></picture>
+        <ul class="General-Links">
+            <div class="links">
+                <li><a href="/#">HOME</a></li>
+                <li><a href="/exams">EXAMS</a></li>
+                <li><a href="/material">MATERIAL</a></li>
+            </div>
+            <div class="user">
+                <li><a href="/login">LOGIN</a></li>
+                <li><a href="/register">REGISTER</a></li>
+            </div>
+        </ul>
+
+    </nav>
+</header>
+<body>
+    <h1>Login</h1>
+    <form id="loginForm" action="/login" method="POST">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+        <br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <br>
+        <button type="submit" href="./nextLogin.html">Login</button>
+    </form>
+    <script src="login.js"></script>
+</body>
+</html>

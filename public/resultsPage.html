@@ -3,14 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resultados del Examen</title>
+    <title>Results of Exam</title>
     <link rel="stylesheet" href="./styles/resultsPage.css">
 </head>
 <body>
-    <h1>Resultados del Examen</h1>
+    <h1 class="answer-title">Results of Exam</h1>
     <div id="resultados"></div>
     <script>
-        `<div class="answer-box">`
         document.addEventListener('DOMContentLoaded', () => {
             const resultados = JSON.parse(localStorage.getItem('resultados')).resultados;
             const resultadosDiv = document.getElementById('resultados');
@@ -24,7 +23,7 @@
                 `;
 
                 resultadosDiv.innerHTML += `
-                    <div>
+                    <div class="answer-box"  ${resultado.correcto ? 'correct' : 'incorrect'}">
                         <h2>${resultado.pregunta}</h2>
                         <div>${optionsHTML}</div>
                         <p><strong>Your answer:</strong> ${resultado.userAnswers.length > 0 ? resultado.userAnswers.join(', ') : 'Blank'}</p>
@@ -32,10 +31,9 @@
                     </div>
                     <hr>
                 `;
-            });
-        `</div>`
-        });
+            })});
     </script>
+    <button class="button-okay">OKAY !</button>
 </body>
 </html>
 
@@ -67,5 +65,4 @@
         });
     </script>
 </body>
-</html>
- -->
+</html> -->

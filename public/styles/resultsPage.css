@@ -49,6 +49,10 @@ body{
     text-decoration: none;
 }
 
+.answer-title{
+    margin-top: 50px;
+    margin-left: 50px;
+}
 
 .titulo{
     margin-top: 10px;
@@ -60,4 +64,5 @@ body{
     width: 90%;
     border:30px;
     margin-top: 30px;
+    margin-bottom: 30px;
 }
