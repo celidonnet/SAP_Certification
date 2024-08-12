@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./public/styles/stylesIndex.css">
-    <title>Examen Simulador</title>
+    <link rel="stylesheet" href="./styles/stylesIndex.css">
+    <title>Exam</title>
     <script>
         function loadExam(count) {
             window.location.href = `/questionPage?count=${count}`;
@@ -29,9 +29,19 @@
     </nav>
 </header>
 <body>
-    <h1>Welcome to the Exam Simulator!</h1>
+    <h1 class="titulo">Welcome to SAP IBP Certification Exams !</h1>
+    <div class="buttons">
+        <button class="button" onclick="startExam(80)"><strong>Load Full Exam (80 questions)</strong></button>
+        <button class="button" onclick="startExam(40)"><strong>Load Mini Exam (40 questions)</strong></button>
+    </div>
+    <script>
+        function startExam(count) {
+            window.location.href = `/questionPage.html?count=${count}`;
+        }
+    </script>
+    <!-- <h1>Welcome to the Exam Simulator!</h1>
     <p>We’re thrilled to have you here. We know that preparing for your exams can be challenging, and we’re here to support you every step of the way.</p>
     <p>To access our exams and start practicing, please register. It’s quick and easy, and it will allow you to save your progress and view your results.</p>
-    <p>We wish you the best of luck in your preparation!</p>
+    <p>We wish you the best of luck in your preparation!</p> -->
 </body>
 </html>

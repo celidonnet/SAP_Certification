@@ -80,7 +80,10 @@ background: linear-gradient(to right, #FDB99B, #CF8BF3, #A770EF); /* W3C, IE 10+
     background-color: snow;
     color:black;
 }
-
+#submitExamButton{
+    text-decoration-style: none;
+    color: black;
+}
 #options{
     cursor: pointer;
     background-color: #fff;

@@ -3,76 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simulador de Examen</title>
+    <title>Exam</title>
     <link rel="stylesheet" href="./styles/styles.css">
 </head>
 <body>
     <header>
-            <nav class="nav-container">
-                <picture><a href="#"><img src="./img/Exams (1).png" alt="logo" width="80px" class="logo-menu"></a></picture>
-                <ul class="General-Links">
-                    <div class="links">
-                        <li><a href="/#">HOME</a></li>
-                        <li><a href="/exams">EXAMS</a></li>
-                        <li><a href="/material">MATERIAL</a></li>
-                    </div>
-                    <div class="user">
-                        <li><a href="/login">LOGIN</a></li>
-                        <li><a href="/register">REGISTER</a></li>
-                    </div>
-                </ul>
-        
-            </nav>
+        <h1 style="margin-top: 20px; margin-left:50px;">Good luck!</h1>
     </header>
-    <main id="examContainer" style="display: none;">
-        <div id="timer"></div>
-        <div id="questionContainer"></div>
+    <div id="examContainer" style="display: none;">
+        <div id="timer" style="font-size: 30px; display:inline;">00:00:00</div>
+        <div id="questionContainer" style="font-size: 20px; display:inline;"></div>
         <button id="backButton" onclick="previousQuestion()">Back</button>
         <button id="nextButton" onclick="nextQuestion()">Next</button>
-        <button id="submitExamButton" onclick="submitExam()">Submit exam</button>
-    </main>
-    <script src="scripts.js"></script>
-</body>
-</html>
-
-
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IBP Certification</title>
-    <link rel="stylesheet" href="/styles/styles.css">
-    <script src="scripts.js" defer></script>
-</head>
-<header>
-    <nav class="nav-container">
-        <picture><a href="#"><img src="./img/Exams (1).png" alt="logo" width="80px" class="logo-menu"></a></picture>
-        <ul class="General-Links">
-            <div class="links">
-                <li><a href="/#">HOME</a></li>
-                <li><a href="/exams">EXAMS</a></li>
-                <li><a href="/material">MATERIAL</a></li>
-            </div>
-            <div class="user">
-                <li><a href="/login">LOGIN</a></li>
-                <li><a href="/register">REGISTER</a></li>
-            </div>
-        </ul>
-
-    </nav>
-</header>
-<body>
-    <div class="container">
-        <h1>Examen</h1>
-        <div id="examContainer" style="display: none;">
-            <div id="questionContainer"></div>
-            <button id="backButton" style="display: none;" onclick="previousQuestion()">Atrás</button>
-            <button id="nextButton" style="display: none;" onclick="nextQuestion()">Siguiente</button>
-            <button id="submitExamButton" style="display: none;" onclick="submitExam()">Terminar examen</button>
-        </div>
-        <div id="timer">Tiempo restante: <span id="time">00:00</span></div>
+        <button id="submitExamButton" onclick="submitExam()"><a href="/resultsPage.html" style="text-decoration: none; color: black">Finish exam</a></button>
     </div>
+    <script src="./scripts/scripts.js"></script>
 </body>
 </html>
- -->
